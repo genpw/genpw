@@ -8237,7 +8237,7 @@
 	 */
 	
 	/**
-	 * get one random symbol from the symbol table
+	 * Get one random symbol from the symbol table
 	 */
 	function getRandomSymbol(){
 		return currentRules.symbolTable[getRandomBits()];
@@ -8266,11 +8266,14 @@
 		if( Array.isArray( currentRules.symbolTable ) ){
 			if( currentRules.symbolTable.length !== MIN_LIST && currentRules.symbolTable.length !== MAX_LIST ){
 				if( currentRules.symbolTable.length < MIN_LIST ){
-					log("Symobl Table too short using 0/1.", 2);
+					log("Symbol Table too short using 0/1.", 2);
 					currentRules.symbolTable = [ "0", "1" ];
 				} else if( currentRules.symbolTable.length > MAX_LIST ) {
-					log("Symobl Table too long - trimming.", 2);
-					currentRules.symbolTable.slice( 0, MAX_LIST - 1)
+					log("Symbol Table too long - trimming.", 2);
+					currentRules.symbolTable.slice( 0, MAX_LIST - 1);
+				} else if( ( currentRules.symbolTable.length & ( currentRules.symbolTable.length - 1 ) ) != 0 ){
+					log("Symbol Table needs to be a power of two long, - trimming.", 2);
+					currentRules.symbolTable.slice( 0, getNextLowestPowerOfTwo( currentRules.symbolTable.length ) - 1 );
 				}
 			}
 		} else if( typeof currentRules.symbolTable === 'string' && DEFUALT_SYMBOL_TABLES.hasOwnProperty( currentRules.symbolTable.toUpperCase ) ){
@@ -8343,7 +8346,7 @@
 	}
 	
 	/**
-	 * The last index of the symbole table as an unsigned int
+	 * The last index of the symbol table as an unsigned int
 	 */
 	function bitMask(){
 		return (currentRules.symbolTable.length - 1)>>>0;
@@ -8369,11 +8372,10 @@
  * (e.g. from the command line)
  */
 if(typeof module !== 'undefined' && this.module !== module && require.main === module){
-	PasswordGenerator = this.PasswordGenerator;
+	var pg, PasswordGenerator = this.PasswordGenerator;
 	
 	pg = new PasswordGenerator();
 	console.log(pg.getRandomSymbol())
 	
 
 }
-console.log('all');
