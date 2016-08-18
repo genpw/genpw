@@ -29,5 +29,8 @@
     "url": "https://github.com/MatthewMi11er/genpw.git"
   },
   "author": "Matathew <matthew@mi11er.net> (https://mi11er.net)",
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "pwgen": "./lib/exec.js"
+  }
 }
