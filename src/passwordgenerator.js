@@ -23,6 +23,7 @@
 }(this, function () {
 	'use strict';
 	var currentRules = {},
+			LOG_LEVELS = [ 'none', 'Error', 'Warning', 'Information' ],
 			MIN_LIST = 0x2,
 			MAX_LIST = 0xFFFFFFFF+0x1,
 			DEFUALT_SYMBOL_TABLES = {
@@ -8247,31 +8248,38 @@
 	 * Generate a Password based on current rule set
 	 */
 	function generate(){
-		console.log('need to do something');
 	}
 	PasswordGenerator.prototype.generate = generate;
-	
+
 	/**
 	 * change the current rule set
 	 */
 	function setRules( newRules ){
 		newRules = newRules || {};
-		currentRules.symbolTable = newRules.symbolTable || currentRules.symbolTable
+		currentRules.logLevel = newRules.logLevel || currentRules.logLevel || 2;
+		if( currentRules.logLevel < 0){
+			currentRules.logLevel = 0;
+		} else if( currentRules.logLevel > 3){
+			currentRules.logLevel = 3;
+		}
+		currentRules.symbolTable = newRules.symbolTable || currentRules.symbolTable || DEFUALT_SYMBOL_TABLES[ 'DICEWARE_8K' ]
 		if( Array.isArray( currentRules.symbolTable ) ){
 			if( currentRules.symbolTable.length !== MIN_LIST && currentRules.symbolTable.length !== MAX_LIST ){
 				if( currentRules.symbolTable.length < MIN_LIST ){
+					log("Symobl Table too short using 0/1.", 2);
 					currentRules.symbolTable = [ "0", "1" ];
 				} else if( currentRules.symbolTable.length > MAX_LIST ) {
+					log("Symobl Table too long - trimming.", 2);
 					currentRules.symbolTable.slice( 0, MAX_LIST - 1)
-				} else {
-					currentRules.sybmolTable.slice( 0, getNextLowestPowerOfTwo( currentRules.symbolTable.length ) );
 				}
 			}
-		} else if( typeof currentRules.symbolTable === 'string' && DEFAULT_SYMBOL_TABLES.hasOwnProperty( currentRules.symbolTable.toUpperCase ) ){
+		} else if( typeof currentRules.symbolTable === 'string' && DEFUALT_SYMBOL_TABLES.hasOwnProperty( currentRules.symbolTable.toUpperCase ) ){
 			currentRules.symbolTable = DEFAULT_SYMBOL_TABLES[currentRules.symbolTable.toUpperCase];
 		} else {
+			log("Symbol Table invalid, using default.", 2);
 			currentRules.symbolTable = DEFUALT_SYMBOL_TABLES[ 'DICEWARE_8K' ];
 		}
+		currentRules.numberOfSymbols = newRules.numberOfSymbols || currentRules.numberOfSymbols || 8;
 	}
 	PasswordGenerator.prototype.setRules = setRules;
 	
@@ -8341,6 +8349,15 @@
 		return (currentRules.symbolTable.length - 1)>>>0;
 	}
 	
+	/**
+	 * Simple Logging
+	 */
+	function log( message, logLevel ){
+		if( logLevel <= currentRules.logLevel ) {
+			console.log( LOG_LEVELS[ logLevel ] + ': ' + message );
+		}
+	}
+
 	/**
 	 * Last but not least return the new object definition.
 	 */
