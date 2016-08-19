@@ -1,6 +1,6 @@
 {
-  "name": "@mi11er/passwordgenerator",
-  "description": "Password Generator",
+  "name": "genpw",
+  "description": "Generate a password.",
   "version": "1.0.0",
   "main": "passwordgenerator.js",
   "dependencies": {
@@ -30,7 +30,8 @@
   },
   "author": "Matathew <matthew@mi11er.net> (https://mi11er.net)",
   "license": "MIT",
+  "homepage": "https://pw.mi11er.net",
   "bin": {
-    "pwgen": "./lib/exec.js"
+    "genpw": "./lib/exec.js"
   }
 }
