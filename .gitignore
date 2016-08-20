@@ -1,3 +1,4 @@
+.firebaserc
 .nyc_output/
 coverage/
 lib/
