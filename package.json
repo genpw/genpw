@@ -1,7 +1,7 @@
 {
   "name": "genpw",
   "description": "Generate a password.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "passwordgenerator.js",
   "dependencies": {
     "sjcl": "1.0.3"
