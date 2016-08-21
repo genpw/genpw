@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { PasswordGenerator } from '../src/passwordgenerator';
+import { PasswordGeneratorException, PasswordGenerator } from '../src/passwordgenerator';
 import { diceware8k } from '../src/diceware8k';
 
 describe('PasswordGenerator', () => {
@@ -24,5 +24,15 @@ describe('PasswordGenerator', () => {
     dw8kPlus1.push('1234');
     const pw = new PasswordGenerator(dw8kPlus1);
     expect(pw.symbolTable.length).to.be.equal(8192);
+  });
+  it('should make sure it the symbol table is not too long', () => {
+    const longArray = Array.from({ length: 0xFFFF + 0x2 }, () => 'a');
+    const pw = new PasswordGenerator(longArray);
+    expect(pw.symbolTable.length).to.be.equal(0xFFFF + 0x1);
+  });
+  it('should use an array as a symbol table', () => {
+    const notAnArray = 'value';
+    expect(() => new PasswordGenerator(notAnArray))
+      .to.throw(PasswordGeneratorException, /Symbol table must be an array./);
   });
 });

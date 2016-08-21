@@ -87,8 +87,13 @@ export class PasswordGenerator {
     return 0x2;
   }
 
+  /**
+   * Currently Limit to 16 bits or 65,536 symbols.
+   * Could possibly support up to 32 bits (0xFFFFFFFF + 0x1;)
+   * the current max size of a javascript array.
+   */
   get maxList() {
-    return 0xFFFFFFFF + 0x1;
+    return 0xFFFF + 0x1;
   }
 
   /**

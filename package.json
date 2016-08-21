@@ -24,8 +24,8 @@
   },
   "scripts": {
     "prepublish": "babel -d lib src/",
-    "test": "mocha --compilers js:babel-register --require babel-polyfill",
     "pretest": "npm run --silent lint",
+    "test": "nyc mocha",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -41,6 +41,17 @@
     "eslint-plugin-import": "^1.13.0",
     "eslint-plugin-jsx-a11y": "^2.1.0",
     "eslint-plugin-react": "^6.1.2",
-    "mocha": "^3.0.2"
+    "mocha": "^3.0.2",
+    "nyc": "^8.1.0"
+  },
+  "nyc": {
+    "include": [
+      "src/"
+    ],
+    "require": [
+      "babel-core/register",
+      "babel-polyfill"
+    ],
+    "all": true
   }
 }
