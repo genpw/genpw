@@ -1,7 +1,7 @@
 {
   "description": "Generate a password.",
   "name": "genpw",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://genpw.com",
   "bugs": {
     "url": "https://github.com/MatthewMi11er/genpw/issues"
