@@ -1,4 +1,5 @@
-export default [
+export const oneZero = [0, 1];
+export const diceware8k = [
   'a',
   'a&p',
   "a's",
