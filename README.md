@@ -1,5 +1,10 @@
+[![Code Climate](https://codeclimate.com/github/MatthewMi11er/genpw/badges/gpa.svg)](https://codeclimate.com/github/MatthewMi11er/genpw)
+[![dependencies Status](https://david-dm.org/MatthewMi11er/genpw/status.svg)](https://david-dm.org/MatthewMi11er/genpw)
+[![npm](https://img.shields.io/npm/v/genpw.svg?maxAge=2592000)](https://www.npmjs.com/package/genpw)
+
 # `genpw` Password Generator
 
-A simple node password generator library. It uses the [Diceware](http://world.std.com/~reinhold/diceware.html) [wordlist](http://world.std.com/~reinhold/diceware8k.c) to build a random passphare.
+A simple node password generator library. It uses the [Diceware](http://world.std.com/~reinhold/diceware.html)
+[wordlist](http://world.std.com/~reinhold/diceware8k.c) to build a random passphare.
 
 Any suggestions for improvement are welcome.

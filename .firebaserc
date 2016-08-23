@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "production": "password-generator-6b05a",
+    "default": "password-generator-6b05a"
+  }
+}

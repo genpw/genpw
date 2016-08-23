@@ -1,5 +1,5 @@
 import { random } from 'sjcl';
-import diceware8k from './diceware8k';
+import { diceware8k } from './diceware8k';
 
 const privatePrng = new WeakMap();
 const privateSymbolTable = new WeakMap();
@@ -54,11 +54,11 @@ export class PasswordGenerator {
       return;
     }
     if (listLength > this.maxList) {
-      privateSymbolTable.set(this, newSymbolTable.slice(0, this.maxList - 1));
+      privateSymbolTable.set(this, newSymbolTable.slice(0, this.maxList));
       return;
     }
     if ((listLength & (listLength - 1)) !== 0) {
-      privateSymbolTable.set(this, newSymbolTable.slice(0, this.nextLowestPower(listLength) - 1));
+      privateSymbolTable.set(this, newSymbolTable.slice(0, this.nextLowestPower(listLength)));
       return;
     }
     privateSymbolTable.set(this, newSymbolTable);
@@ -87,8 +87,13 @@ export class PasswordGenerator {
     return 0x2;
   }
 
+  /**
+   * Currently Limit to 16 bits or 65,536 symbols.
+   * Could possibly support up to 32 bits (0xFFFFFFFF + 0x1;)
+   * the current max size of a javascript array.
+   */
   get maxList() {
-    return 0xFFFFFFFF + 0x1;
+    return 0xFFFF + 0x1;
   }
 
   /**
