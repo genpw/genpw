@@ -1,7 +1,10 @@
-doctype html
-html
-  body
-    div
-      h1 Home of genpw
-      p Coming soon... or someday... maybe...
+extends layouts/layout
 
+block content
+
+  main
+    header.hero
+      div.content
+        h1 Home of genpw
+        p.slogan A friendly password generator.
+        pre#theBestPassword placeholder

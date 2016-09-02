@@ -23,16 +23,18 @@
     "url": "https://github.com/MatthewMi11er/genpw.git"
   },
   "scripts": {
-    "start": "run-p watch firebase-serve browsersync",
-    "watch": "run-s 'pug -- -w'",
+    "start": "run-p watch:* start:*",
+    "start:browsersync": "browser-sync start --proxy 'localhost:5000' --files web/",
+    "start:firebase": "firebase serve",
     "prepublish": "babel -d lib src/",
     "pretest": "npm run --silent lint",
     "test": "nyc mocha",
     "posttest": "nyc report --reporter=lcov",
     "lint": "eslint .",
-    "browsersync": "browser-sync start --proxy 'localhost:5000' --files web/",
-    "pug": "pug -o web -E html src/pug/*.pug",
-    "firebase-serve": "firebase serve"
+    "build:css": "node-sass src/scss/style.scss web/css/style.css",
+    "build:html": "pug -o web -E html src/pug/*.pug",
+    "watch:css": "run-s 'build:css -- -r -w src/scss'",
+    "watch:html": "run-s 'build:html -- -w'"
   },
   "dependencies": {
     "sjcl": "1.0.3"
@@ -51,10 +53,13 @@
     "eslint-plugin-react": "^6.1.2",
     "firebase-tools": "^3.0.7",
     "mocha": "^3.0.2",
+    "node-sass": "^3.8.0",
     "npm-run-all": "^3.1.0",
     "nyc": "^8.1.0",
+    "picnic": "^6.1.5",
     "pug": "^2.0.0-beta6",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "webpack": "^1.13.2"
   },
   "nyc": {
     "include": [
