@@ -32,7 +32,7 @@ export class PasswordGenerator {
     for (let i = 0; i < (numSymbols || 1); i++) {
       out.push(this.symbol);
     }
-    return out.join();
+    return out.join(' ');
   }
 
   /**
