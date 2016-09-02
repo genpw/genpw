@@ -1,8 +1,8 @@
-.firebaserc
-.nyc_output/
-coverage/
-firebase-debug.log
-lib/
-node_modules/
-npm-debug.log
-web/
+/.firebaserc
+/.nyc_output/
+/coverage/
+/firebase-debug.log
+/lib/
+/node_modules/
+/npm-debug.log
+/web/

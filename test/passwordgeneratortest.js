@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { PasswordGeneratorException, PasswordGenerator } from '../src/passwordgenerator';
-import { diceware8k } from '../src/diceware8k';
+import { PasswordGeneratorException, PasswordGenerator } from '../src/js/lib/passwordgenerator';
+import { diceware8k } from '../src/js/lib/diceware8k';
 
 describe('PasswordGenerator', () => {
   it('should generate a password', () => {

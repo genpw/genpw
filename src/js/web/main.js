@@ -1,4 +1,4 @@
-import { PasswordGenerator } from '../passwordgenerator';
+import { PasswordGenerator } from '../lib/passwordgenerator';
 import { u } from 'umbrellajs';
 
 const pw = new PasswordGenerator();
