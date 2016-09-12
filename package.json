@@ -14,7 +14,7 @@
     "package.json",
     "README.md"
   ],
-  "main": "passwordgenerator.js",
+  "main": "./lib/passwordgenerator.js",
   "bin": {
     "genpw": "./lib/exec.js"
   },
