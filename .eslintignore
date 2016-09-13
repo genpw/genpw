@@ -1,5 +1,4 @@
-.nyc_output/
-coverage/
-lib/
-node_modules/
-web/
+/.nyc_output/
+/coverage/
+/lib/
+/node_modules/

@@ -1,6 +1,7 @@
 [![Code Climate](https://codeclimate.com/github/MatthewMi11er/genpw/badges/gpa.svg)](https://codeclimate.com/github/MatthewMi11er/genpw)
 [![dependencies Status](https://david-dm.org/MatthewMi11er/genpw/status.svg)](https://david-dm.org/MatthewMi11er/genpw)
 [![npm](https://img.shields.io/npm/v/genpw.svg?maxAge=2592000)](https://www.npmjs.com/package/genpw)
+[![bitHound Overall Score](https://www.bithound.io/github/MatthewMi11er/genpw/badges/score.svg)](https://www.bithound.io/github/MatthewMi11er/genpw)
 
 # `genpw` Password Generator
 

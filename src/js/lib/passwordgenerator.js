@@ -29,7 +29,7 @@ export class PasswordGenerator {
    */
   generate(numSymbols) {
     const out = [];
-    for (let i = 0; i < (numSymbols || 1); i++) {
+    for (let i = 0; i < (numSymbols || 1); i += 1) {
       out.push(this.symbol);
     }
     return out.join(' ');
@@ -49,16 +49,17 @@ export class PasswordGenerator {
 
     const listLength = newSymbolTable.length;
 
-    if (listLength < this.minList) {
+    if (listLength < PasswordGenerator.minList) {
       privateSymbolTable.set(this, [0, 1]);
       return;
     }
-    if (listLength > this.maxList) {
-      privateSymbolTable.set(this, newSymbolTable.slice(0, this.maxList));
+    if (listLength > PasswordGenerator.maxList) {
+      privateSymbolTable.set(this, newSymbolTable.slice(0, PasswordGenerator.maxList));
       return;
     }
-    if ((listLength & (listLength - 1)) !== 0) {
-      privateSymbolTable.set(this, newSymbolTable.slice(0, this.nextLowestPower(listLength)));
+    if ((listLength & (listLength - 1)) !== 0) { // eslint-disable-line no-bitwise
+      const nextLowestPower = PasswordGenerator.nextLowestPower(listLength);
+      privateSymbolTable.set(this, newSymbolTable.slice(0, nextLowestPower));
       return;
     }
     privateSymbolTable.set(this, newSymbolTable);
@@ -73,17 +74,18 @@ export class PasswordGenerator {
   }
 
   get randomBits() {
-    return (privatePrng.get(this).randomWords(1) & this.bitMask) >>> 0;
+    const prng = privatePrng.get(this);
+    return (prng.randomWords(1) & this.bitMask) >>> 0; // eslint-disable-line no-bitwise
   }
 
   /**
    * The last index of the symbol table as an unsigned int
    */
   get bitMask() {
-    return (this.symbolTable.length - 1) >>> 0;
+    return (this.symbolTable.length - 1) >>> 0; // eslint-disable-line no-bitwise
   }
 
-  get minList() {
+  static get minList() {
     return 0x2;
   }
 
@@ -92,7 +94,7 @@ export class PasswordGenerator {
    * Could possibly support up to 32 bits (0xFFFFFFFF + 0x1;)
    * the current max size of a javascript array.
    */
-  get maxList() {
+  static get maxList() {
     return 0xFFFF + 0x1;
   }
 
@@ -100,14 +102,14 @@ export class PasswordGenerator {
    * gets the next lowest number that
    * is a power of two
    */
-  nextLowestPower(y) {
+  static nextLowestPower(y) {
     let x = y;
-    x = (x | (x >>> 1)) >>> 0;
-    x = (x | (x >>> 2)) >>> 0;
-    x = (x | (x >>> 4)) >>> 0;
-    x = (x | (x >>> 8)) >>> 0;
-    x = (x | (x >>> 16)) >>> 0;
-    x = (x - (x >>> 1)) >>> 0;
+    x = (x | (x >>> 1)) >>> 0; // eslint-disable-line no-bitwise
+    x = (x | (x >>> 2)) >>> 0; // eslint-disable-line no-bitwise
+    x = (x | (x >>> 4)) >>> 0; // eslint-disable-line no-bitwise
+    x = (x | (x >>> 8)) >>> 0; // eslint-disable-line no-bitwise
+    x = (x | (x >>> 16)) >>> 0; // eslint-disable-line no-bitwise
+    x = (x - (x >>> 1)) >>> 0; // eslint-disable-line no-bitwise
     return x;
   }
 }
