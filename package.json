@@ -1,10 +1,10 @@
 {
   "description": "Generate a password.",
   "name": "genpw",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "homepage": "https://genpw.com",
   "bugs": {
-    "url": "https://github.com/MatthewMi11er/genpw/issues"
+    "url": "https://github.com/genpw/genpw/issues"
   },
   "license": "MIT",
   "author": "Matthew <matthew@mi11er.net> (https://mi11er.net)",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MatthewMi11er/genpw.git"
+    "url": "https://github.com/genpw/genpw.git"
   },
   "scripts": {
     "prepublish": "run-s clean build:lib",

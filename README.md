@@ -1,8 +1,8 @@
-[![Code Climate](https://codeclimate.com/github/MatthewMi11er/genpw/badges/gpa.svg)](https://codeclimate.com/github/MatthewMi11er/genpw)
-[![dependencies Status](https://david-dm.org/MatthewMi11er/genpw/status.svg)](https://david-dm.org/MatthewMi11er/genpw)
+[![Code Climate](https://codeclimate.com/github/genpw/genpw/badges/gpa.svg)](https://codeclimate.com/github/genpw/genpw)
+[![dependencies Status](https://david-dm.org/genpw/genpw/status.png)](https://david-dm.org/genpw/genpw)
 [![npm](https://img.shields.io/npm/v/genpw.svg?maxAge=2592000)](https://www.npmjs.com/package/genpw)
-[![bitHound Overall Score](https://www.bithound.io/github/MatthewMi11er/genpw/badges/score.svg)](https://www.bithound.io/github/MatthewMi11er/genpw)
-[![Build Status](https://travis-ci.org/MatthewMi11er/genpw.svg?branch=master)](https://travis-ci.org/MatthewMi11er/genpw)
+[![bitHound Overall Score](https://www.bithound.io/github/genpw/genpw/badges/score.svg)](https://www.bithound.io/github/genpw/genpw)
+[![Build Status](https://travis-ci.org/genpw/genpw.svg?branch=master)](https://travis-ci.org/genpw/genpw)
 
 # `genpw` Password Generator
 
