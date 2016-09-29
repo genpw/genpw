@@ -4,6 +4,6 @@ module.exports = {
     "import/no-extraneous-dependencies": [2, {"devDependencies": true}]
   },
   "env": {
-      "mocha": true
+    "mocha": true
   }
 }
