@@ -1,7 +1,9 @@
 {
   "description": "Generate a password.",
   "name": "genpw",
-  "version": "1.0.6",
+  "release": {
+    "branch": "master"
+  },
   "homepage": "https://genpw.com",
   "bugs": {
     "url": "https://github.com/genpw/genpw/issues"
@@ -30,7 +32,8 @@
     "lint": "eslint .",
     "build": "run-s clean build:*",
     "build:lib": "babel -d lib src/js/lib",
-    "clean": "rimraf .nyc_output coverage lib npm-debug.log"
+    "clean": "rimraf .nyc_output coverage lib npm-debug.log",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "sjcl": "1.0.6"
@@ -43,21 +46,21 @@
     "codeclimate-test-reporter": "^0.3.3",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.2.1",
+    "eslint-plugin-react": "^6.2.2",
     "mocha": "^3.0.2",
     "npm-run-all": "^3.1.0",
     "nyc": "^8.1.0",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.5.4",
+    "semantic-release": "^4.3.5"
   },
   "nyc": {
     "include": [
       "src/"
     ],
     "require": [
-      "babel-core/register",
-      "babel-polyfill"
+      "babel-register"
     ],
     "all": true
   }
