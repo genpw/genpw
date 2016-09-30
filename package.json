@@ -1,7 +1,6 @@
 {
   "description": "Generate a password.",
   "name": "genpw",
-  "version": "1.0.6",
   "homepage": "https://genpw.com",
   "bugs": {
     "url": "https://github.com/genpw/genpw/issues"
@@ -30,7 +29,8 @@
     "lint": "eslint .",
     "build": "run-s clean build:*",
     "build:lib": "babel -d lib src/js/lib",
-    "clean": "rimraf .nyc_output coverage lib npm-debug.log"
+    "clean": "rimraf .nyc_output coverage lib npm-debug.log",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "sjcl": "1.0.6"
@@ -49,7 +49,8 @@
     "mocha": "^3.0.2",
     "npm-run-all": "^3.1.0",
     "nyc": "^8.1.0",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.5.4",
+    "semantic-release": "^4.3.5"
   },
   "nyc": {
     "include": [
