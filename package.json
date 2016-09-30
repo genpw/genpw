@@ -3,7 +3,7 @@
   "name": "genpw",
   "release": {
     "branch": "master"
-  }
+  },
   "homepage": "https://genpw.com",
   "bugs": {
     "url": "https://github.com/genpw/genpw/issues"
