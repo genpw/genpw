@@ -60,7 +60,7 @@
       "src/"
     ],
     "require": [
-      "babel-core/register",
+      "babel-register",
       "babel-polyfill"
     ],
     "all": true
