@@ -25,15 +25,15 @@
     "url": "https://github.com/genpw/genpw.git"
   },
   "scripts": {
-    "prepublish": "run-s clean build:lib",
-    "pretest": "npm run --silent lint",
+    "prepublish": "run-s build",
+    "pretest": "run-s lint",
     "test": "nyc mocha",
     "posttest": "nyc report --reporter=lcov",
-    "lint": "eslint .",
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern lib/ --fix  .",
     "build": "run-s clean build:*",
     "build:lib": "babel -d lib src/js/lib",
-    "clean": "rimraf .nyc_output coverage lib npm-debug.log",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "clean": "rimraf .nyc_output coverage lib/* npm-debug.log",
+    "semantic-release": "semantic-release pre && yarn publish && semantic-release post"
   },
   "dependencies": {
     "sjcl": "1.0.6"
