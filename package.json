@@ -17,6 +17,7 @@
     "README.md"
   ],
   "main": "./lib/passwordgenerator.js",
+  "module": "./lib/module/passwordgenerator.js",
   "bin": {
     "genpw": "./lib/exec.js"
   },
@@ -27,11 +28,12 @@
   "scripts": {
     "prepublish": "run-s build",
     "pretest": "run-s lint",
-    "test": "nyc mocha",
-    "posttest": "nyc report --reporter=lcov",
+    "test": "BABEL_ENV=main nyc mocha",
+    "posttest": "BABEL_ENV=main nyc report --reporter=lcov",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern lib/ --fix  .",
-    "build": "run-s clean build:*",
-    "build:lib": "babel -d lib src/js/lib",
+    "build": "run-s clean test build:*",
+    "build:main": "BABEL_ENV=main babel -d lib/ src/js/lib",
+    "build:module": "BABEL_ENV=module babel -d lib/module/ src/",
     "clean": "rimraf .nyc_output coverage lib/* npm-debug.log",
     "semantic-release": "semantic-release pre && yarn publish && semantic-release post"
   },
@@ -40,6 +42,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-preset-env": "1.5.1",
     "babel-preset-es2015": "^6.18.0",
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
@@ -67,6 +70,42 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "babel": {
+    "env": {
+      "module": {
+        "presets": [
+          [
+            "env",
+            {
+              "targets": {
+                "node": "current",
+                "browsers": [
+                  "last 2 versions"
+                ]
+              },
+              "modules": false
+            }
+          ]
+        ]
+      },
+      "main": {
+        "presets": [
+          [
+            "env",
+            {
+              "targets": {
+                "node": "current",
+                "browsers": [
+                  "last 2 versions"
+                ]
+              },
+              "modules": "commonjs"
+            }
+          ]
+        ]
+      }
     }
   }
 }
