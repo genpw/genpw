@@ -15,8 +15,10 @@ node_js:
 - "6"
 before_install:
 - yarn config set progress=false
+before_script: greenkeeper-lockfile-update
 after_script:
 - codeclimate-test-reporter < coverage/lcov.info
+- greenkeeper-lockfile-upload
 after_success:
 - yarn run semantic-release
 branches:
