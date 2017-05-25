@@ -16,10 +16,10 @@
     "package.json",
     "README.md"
   ],
-  "main": "./lib/passwordgenerator.js",
-  "module": "./lib/module/passwordgenerator.js",
+  "main": "./dist/main/passwordgenerator.js",
+  "module": "./dist/module/passwordgenerator.js",
   "bin": {
-    "genpw": "./lib/exec.js"
+    "genpw": "./dist/main/exec.js"
   },
   "repository": {
     "type": "git",
@@ -31,12 +31,12 @@
     "test": "BABEL_ENV=main nyc mocha",
     "posttest": "BABEL_ENV=main nyc report --reporter=lcov",
     "lint": "run-p lint:*",
-    "lint:js": "eslint --ignore-path .gitignore --ignore-pattern lib/ --fix  .",
+    "lint:js": "eslint --ignore-path .gitignore --ignore-pattern dist/ --fix  .",
     "lint:package.json": "jsonlint -i package.json",
     "build": "run-s clean test build:*",
-    "build:main": "BABEL_ENV=main babel -d lib/ src/js/lib",
-    "build:module": "BABEL_ENV=module babel -d lib/module/ src/",
-    "clean": "rimraf .nyc_output coverage lib/* npm-debug.log",
+    "build:main": "BABEL_ENV=main babel -d dist/main/ src/js/lib/",
+    "build:module": "BABEL_ENV=module babel -d dist/module/ src/js/lib/",
+    "clean": "rimraf .nyc_output coverage dist/* npm-debug.log",
     "semantic-release": "semantic-release pre && yarn publish && semantic-release post"
   },
   "dependencies": {
