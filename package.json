@@ -57,7 +57,7 @@
     "jsonlint": "1.6.2",
     "mocha": "3.4.2",
     "npm-run-all": "4.0.2",
-    "nyc": "10.3.2",
+    "nyc": "11.0.2",
     "rimraf": "2.6.1",
     "semantic-release": "6.3.6"
   },
