@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { PasswordGeneratorException, PasswordGenerator } from '../src/js/lib/passwordgenerator';
+import PasswordGenerator from '../src/js/lib/passwordgenerator';
 import { diceware8k } from '../src/js/lib/diceware8k';
 
 describe('PasswordGenerator', () => {
@@ -33,6 +33,6 @@ describe('PasswordGenerator', () => {
   it('should use an array as a symbol table', () => {
     const notAnArray = 'value';
     expect(() => new PasswordGenerator(notAnArray))
-      .to.throw(PasswordGeneratorException, /Symbol table must be an array./);
+      .to.throw(TypeError, 'Symbol table must be an array.');
   });
 });

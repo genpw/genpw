@@ -8,24 +8,7 @@ import { diceware8k } from './diceware8k';
 var privatePrng = new WeakMap();
 var privateSymbolTable = new WeakMap();
 
-export var PasswordGeneratorException = function () {
-  function PasswordGeneratorException(message) {
-    _classCallCheck(this, PasswordGeneratorException);
-
-    this.message = message;
-  }
-
-  _createClass(PasswordGeneratorException, [{
-    key: 'toString',
-    value: function toString() {
-      return this.message;
-    }
-  }]);
-
-  return PasswordGeneratorException;
-}();
-
-export var PasswordGenerator = function () {
+var PasswordGenerator = function () {
   /**
    * The Constructor
    * @param {settings} string
@@ -68,7 +51,7 @@ export var PasswordGenerator = function () {
     key: 'symbolTable',
     set: function set(newSymbolTable) {
       if (!Array.isArray(newSymbolTable)) {
-        throw new PasswordGeneratorException('Symbol table must be an array.');
+        throw new TypeError('Symbol table must be an array.');
       }
 
       var listLength = newSymbolTable.length;
@@ -152,3 +135,5 @@ export var PasswordGenerator = function () {
 
   return PasswordGenerator;
 }();
+
+export { PasswordGenerator as default };
