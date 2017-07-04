@@ -40,7 +40,7 @@
     "semantic-release": "semantic-release pre && yarn publish && semantic-release post"
   },
   "dependencies": {
-    "sjcl": "1.0.6"
+    "sjcl": "1.0.7"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
