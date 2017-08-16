@@ -43,7 +43,7 @@
     "sjcl": "1.0.7"
   },
   "devDependencies": {
-    "babel-cli": "6.24.1",
+    "babel-cli": "6.26.0",
     "babel-preset-env": "1.5.2",
     "babel-register": "6.26.0",
     "chai": "4.1.1",
