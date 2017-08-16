@@ -59,7 +59,7 @@
     "npm-run-all": "4.0.2",
     "nyc": "10.3.2",
     "rimraf": "2.6.1",
-    "semantic-release": "6.3.6"
+    "semantic-release": "7.0.1"
   },
   "nyc": {
     "include": [
