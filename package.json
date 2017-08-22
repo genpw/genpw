@@ -51,7 +51,7 @@
     "commitizen": "2.9.6",
     "cz-conventional-changelog": "2.1.0",
     "eslint": "4.1.0",
-    "eslint-config-airbnb-base": "11.3.0",
+    "eslint-config-airbnb-base": "11.3.2",
     "eslint-plugin-import": "2.8.0",
     "greenkeeper-lockfile": "1.7.2",
     "jsonlint": "1.6.2",
