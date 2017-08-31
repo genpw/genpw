@@ -46,7 +46,7 @@
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.5.2",
     "babel-register": "6.26.0",
-    "chai": "4.1.1",
+    "chai": "4.1.2",
     "codeclimate-test-reporter": "0.4.1",
     "commitizen": "2.9.6",
     "cz-conventional-changelog": "2.1.0",
