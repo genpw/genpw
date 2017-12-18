@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.PasswordGenerator = exports.PasswordGeneratorException = undefined;
+exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -16,24 +16,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var privatePrng = new WeakMap();
 var privateSymbolTable = new WeakMap();
 
-var PasswordGeneratorException = exports.PasswordGeneratorException = function () {
-  function PasswordGeneratorException(message) {
-    _classCallCheck(this, PasswordGeneratorException);
-
-    this.message = message;
-  }
-
-  _createClass(PasswordGeneratorException, [{
-    key: 'toString',
-    value: function toString() {
-      return this.message;
-    }
-  }]);
-
-  return PasswordGeneratorException;
-}();
-
-var PasswordGenerator = exports.PasswordGenerator = function () {
+var PasswordGenerator = function () {
   /**
    * The Constructor
    * @param {settings} string
@@ -76,7 +59,7 @@ var PasswordGenerator = exports.PasswordGenerator = function () {
     key: 'symbolTable',
     set: function set(newSymbolTable) {
       if (!Array.isArray(newSymbolTable)) {
-        throw new PasswordGeneratorException('Symbol table must be an array.');
+        throw new TypeError('Symbol table must be an array.');
       }
 
       var listLength = newSymbolTable.length;
@@ -160,3 +143,5 @@ var PasswordGenerator = exports.PasswordGenerator = function () {
 
   return PasswordGenerator;
 }();
+
+exports.default = PasswordGenerator;

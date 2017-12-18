@@ -4,17 +4,7 @@ import { diceware8k } from './diceware8k';
 const privatePrng = new WeakMap();
 const privateSymbolTable = new WeakMap();
 
-export class PasswordGeneratorException {
-  constructor(message) {
-    this.message = message;
-  }
-
-  toString() {
-    return this.message;
-  }
-}
-
-export class PasswordGenerator {
+class PasswordGenerator {
   /**
    * The Constructor
    * @param {settings} string
@@ -44,7 +34,7 @@ export class PasswordGenerator {
 
   set symbolTable(newSymbolTable) {
     if (!Array.isArray(newSymbolTable)) {
-      throw new PasswordGeneratorException('Symbol table must be an array.');
+      throw new TypeError('Symbol table must be an array.');
     }
 
     const listLength = newSymbolTable.length;
@@ -113,3 +103,5 @@ export class PasswordGenerator {
     return x;
   }
 }
+
+export { PasswordGenerator as default };
