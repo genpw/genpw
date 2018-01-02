@@ -11,3 +11,5 @@ A simple node password generator library. It uses the [Diceware](http://world.st
 [wordlist](http://world.std.com/~reinhold/diceware8k.c) to build a random passphrase.
 
 Any [suggestions for improvement](https://github.com/genpw/genpw/issues) are welcome.
+
+version: 1.0.8
