@@ -21,8 +21,6 @@ script: npm run build
 after_script:
 - codeclimate-test-reporter < coverage/lcov.info
 - greenkeeper-lockfile-upload
-after_success:
-- yarn run semantic-release
 
 before_deploy:
   - .travis/setup-git.sh > /dev/null 2>&1
