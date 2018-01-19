@@ -2,7 +2,38 @@
   "description": "Generate a password.",
   "name": "genpw",
   "release": {
-    "branch": "master"
+    "branch": "master",
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ],
+    "publish": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "yarn pack"
+      },
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "npm-shrinkwrap.json",
+          "CHANGELOG.md"
+        ]
+      },
+      {
+        "path": "@semantic-release/github",
+        "assets": [
+          {
+            "path": "genpw-v*.tgz",
+            "label": "npm package"
+          }
+        ]
+      }
+    ]
   },
   "homepage": "https://genpw.com",
   "bugs": {
@@ -11,10 +42,11 @@
   "license": "MIT",
   "author": "Matthew <matthew@mi11er.net> (https://mi11er.net)",
   "files": [
-    "lib/",
+    "dist/*",
     "LICENSE",
     "package.json",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "main": "./dist/main/passwordgenerator.js",
   "module": "./dist/module/passwordgenerator.js",
@@ -26,7 +58,6 @@
     "url": "https://github.com/genpw/genpw.git"
   },
   "scripts": {
-    "prepublish": "run-s build",
     "pretest": "run-s lint",
     "test": "BABEL_ENV=main nyc mocha",
     "posttest": "BABEL_ENV=main nyc report --reporter=lcov",
@@ -37,7 +68,7 @@
     "build:main": "BABEL_ENV=main babel -d dist/main/ src/js/lib/",
     "build:module": "BABEL_ENV=module babel -d dist/module/ src/js/lib/",
     "clean": "rimraf .nyc_output coverage dist/* npm-debug.log",
-    "semantic-release": "semantic-release pre && yarn publish && semantic-release post"
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "sjcl": "1.0.7"
@@ -59,6 +90,9 @@
     "npm-run-all": "4.1.2",
     "nyc": "11.4.1",
     "rimraf": "2.6.2",
+    "@semantic-release/changelog": "1.0.0",
+    "@semantic-release/exec": "1.0.2",
+    "@semantic-release/git": "2.0.2",
     "semantic-release": "12.2.2"
   },
   "nyc": {

@@ -3,6 +3,7 @@ language: node_js
 cache:
   yarn: true
   directories:
+  - "${HOME}/.cache/yarn"
   - node_modules
 notifications:
   email:
@@ -11,16 +12,23 @@ notifications:
     secure: QdO6cAuiW14uoTk5e3NHdEwS5Q2GS26gKPKwG/vfQZacCnZNVfaeOEcXLm+2nFcnsY8F57sneZzIAK/qRWIekGwuxqONgGvJ6vpbs3O+zsEjQn07xr4TNCP2IF4yL8HEEpjwE2wBebkRZaZNIWHt7NvHWSP8NjvKspp64b6OJP/elF5QnodlhtEjxCUQVxyiFE4fDWejJ7Wi2eEkZNLsFJnGpac0i/hYoqjvbToMXIU3XUw7GBucOd6ryHB7UWJSymJLdWRzdOX4lGgDM8ueTw2XosP8w6cWiAmfwDe99O2SKYJON6sLFJ6ABIvi/azymfVgbnZxAVFEQvpzLdqftoV6s7m+p7e/FgTHr5FXkb0S9CW9+0meEgxaXwFRaCDq14Wc9i6RT7SAlT2yW0gHJ+OlPl9877wFGQ/4UpWAM+buHFL7dUCBqHKuxCvGr/8XBhasotPRHbecIp1w1FLoMWP7K6tWLxthMZSlQQ9qtV95JbgRIczBk1x6iZRQ5jWwElJ8ncMS76XLeJkAn+J9X4BJFWKRLWWjeHoCrHoX65NWv9nb6bvzrLK10+YfWH1tE+yUvoj9zJD8JOQn1DIC2evDJok3FpQrksV11W+ipBPDhOcptbdUFywa+b3FdP6R0n+tCBlUXrFsprYStg93bMFdB9LlpyUhKXLcH2nK6FY=
 node_js:
 - "node"
-- "7"
-- "6"
+
 before_install:
 - yarn config set progress=false
+- yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
+script: npm run build
 after_script:
 - codeclimate-test-reporter < coverage/lcov.info
 - greenkeeper-lockfile-upload
 after_success:
 - yarn run semantic-release
-branches:
-  except:
-  - "/^v\\d+\\.\\d+\\.\\d+$/"
+
+before_deploy:
+  - .travis/setup-git.sh > /dev/null 2>&1
+deploy:
+  provider: script
+  script: npm run semantic-release
+  skip_cleanup: true
+  on:
+    branch: master
