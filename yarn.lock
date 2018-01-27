@@ -24,21 +24,18 @@
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/error/-/error-2.1.0.tgz#44771f676f5b148da309111285a97901aa95a6e0"
 
-"@semantic-release/git@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-2.2.0.tgz#148aa5161ef9be9558346ce6ec1572a54f47519f"
+"@semantic-release/git@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-3.0.0.tgz#8e2fb02672e83c878376717d3185e1365d204599"
   dependencies:
     "@semantic-release/error" "^2.1.0"
     debug "^3.1.0"
     dir-glob "^2.0.0"
     execa "^0.9.0"
     fs-extra "^5.0.0"
-    git-url-parse "^8.0.0"
     lodash "^4.17.4"
     micromatch "^3.1.4"
-    p-locate "^2.0.0"
     p-reduce "^1.0.0"
-    semver "^5.4.1"
 
 "@semantic-release/github@^3.0.1":
   version "3.0.1"
@@ -2145,12 +2142,6 @@ git-up@^2.0.0:
 git-url-parse@^7.0.1:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-7.0.2.tgz#75fc7ae08e5daa90edc59043cdfa8da57c5a8715"
-  dependencies:
-    git-up "^2.0.0"
-
-git-url-parse@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-8.0.0.tgz#249430c84e6b11ebae630136f50d7993eb03e211"
   dependencies:
     git-up "^2.0.0"
 
