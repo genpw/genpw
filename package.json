@@ -1,7 +1,7 @@
 {
   "description": "Generate a password.",
   "name": "genpw",
-  "version":"1.0.7",
+  "version": "1.0.9",
   "release": {
     "branch": "master",
     "verifyConditions": [
@@ -18,7 +18,9 @@
       },
       {
         "path": "@semantic-release/git",
-        "assets": ["**"]
+        "assets": [
+          "**"
+        ]
       },
       {
         "path": "@semantic-release/github",
