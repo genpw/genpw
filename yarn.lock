@@ -24,9 +24,9 @@
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/error/-/error-2.1.0.tgz#44771f676f5b148da309111285a97901aa95a6e0"
 
-"@semantic-release/git@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-2.1.0.tgz#37d27fc1c31c68380fba79074e47258c4cbe774a"
+"@semantic-release/git@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-2.2.0.tgz#148aa5161ef9be9558346ce6ec1572a54f47519f"
   dependencies:
     "@semantic-release/error" "^2.1.0"
     debug "^3.1.0"
