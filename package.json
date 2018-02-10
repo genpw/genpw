@@ -87,7 +87,7 @@
     "npm-run-all": "4.1.2",
     "nyc": "11.4.1",
     "rimraf": "2.6.2",
-    "@semantic-release/changelog": "1.0.0",
+    "@semantic-release/changelog": "1.0.1",
     "@semantic-release/git": "3.0.0",
     "semantic-release": "13.0.1"
   },
