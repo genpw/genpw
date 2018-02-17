@@ -7,7 +7,8 @@ const privateSymbolTable = new WeakMap();
 class PasswordGenerator {
   /**
    * The Constructor
-   * @param {settings} string
+   * @param {array} symbolTable - list of distinct symbols used to build the password
+   * @param {function} prng - a random number generator
    */
   constructor(symbolTable = diceware8k, prng = random) {
     this.symbolTable = symbolTable;
@@ -16,6 +17,8 @@ class PasswordGenerator {
 
   /**
    * Generate a Password
+   * @param {int} numSymbols - the number of symbols you want to use in your password
+   * @returns {string} - the generated password
    */
   generate(numSymbols) {
     const out = [];
@@ -44,10 +47,14 @@ class PasswordGenerator {
       return;
     }
     if (listLength > PasswordGenerator.maxList) {
-      privateSymbolTable.set(this, newSymbolTable.slice(0, PasswordGenerator.maxList));
+      privateSymbolTable.set(
+        this,
+        newSymbolTable.slice(0, PasswordGenerator.maxList)
+      );
       return;
     }
-    if ((listLength & (listLength - 1)) !== 0) { // eslint-disable-line no-bitwise
+    // eslint-disable-next-line no-bitwise
+    if ((listLength & (listLength - 1)) !== 0) {
       const nextLowestPower = PasswordGenerator.nextLowestPower(listLength);
       privateSymbolTable.set(this, newSymbolTable.slice(0, nextLowestPower));
       return;
@@ -85,12 +92,14 @@ class PasswordGenerator {
    * the current max size of a javascript array.
    */
   static get maxList() {
-    return 0xFFFF + 0x1;
+    return 0xffff + 0x1;
   }
 
   /**
    * gets the next lowest number that
    * is a power of two
+   * @param {int} y - the number
+   * @returns {int} - the next lower power of two
    */
   static nextLowestPower(y) {
     let x = y;
