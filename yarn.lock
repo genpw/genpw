@@ -71,9 +71,13 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@mi11er/eslint-config@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@mi11er/eslint-config/-/eslint-config-1.2.1.tgz#a6b4b0dbcbffe745a5eb380aff9cea98213c0ed4"
+"@mi11er/eslint-config@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@mi11er/eslint-config/-/eslint-config-2.0.0.tgz#389ab4a013c3a4781c1b23fbee9faa5dbc291074"
+  dependencies:
+    eslint-config-airbnb "16.1.0"
+    eslint-config-airbnb-base "12.1.0"
+    eslint-config-prettier "2.9.0"
 
 "@octokit/rest@^14.0.3":
   version "14.0.6"
@@ -1817,11 +1821,17 @@ escodegen@^1.9.0:
   optionalDependencies:
     source-map "~0.5.6"
 
-eslint-config-airbnb-base@12.1.0:
+eslint-config-airbnb-base@12.1.0, eslint-config-airbnb-base@^12.1.0:
   version "12.1.0"
   resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-12.1.0.tgz#386441e54a12ccd957b0a92564a4bafebd747944"
   dependencies:
     eslint-restricted-globals "^0.1.1"
+
+eslint-config-airbnb@16.1.0:
+  version "16.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-16.1.0.tgz#2546bfb02cc9fe92284bf1723ccf2e87bc45ca46"
+  dependencies:
+    eslint-config-airbnb-base "^12.1.0"
 
 eslint-config-prettier@2.9.0:
   version "2.9.0"
