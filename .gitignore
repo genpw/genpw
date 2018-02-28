@@ -1,6 +1,13 @@
-/.nyc_output/
-/coverage/
+# Dependency directories
 /node_modules/
+
+# Logs
 /npm-debug.log
 /yarn-error.log
+
+# Release Dir
 /release/
+
+# Test Output
+/.nyc_output/
+/coverage/

@@ -1,7 +1,6 @@
+# Dependency directories
+/node_modules/
+
+# Test Output
 /.nyc_output/
 /coverage/
-/node_modules/
-/npm-debug.log
-/yarn-error.log
-/release/
-/dist/

@@ -8,28 +8,34 @@
   },
   "license": "MIT",
   "author": "Matthew <matthew@mi11er.net> (https://mi11er.net)",
-  "files": ["dist/*", "LICENSE", "package.json", "README.md", "CHANGELOG.md"],
-  "main": "./dist/main/passwordgenerator.js",
-  "module": "./dist/module/passwordgenerator.js",
+  "files": [
+    "bin",
+    "lib",
+    "index.js",
+    "index.mjs",
+    "LICENSE",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "main": "./index.js",
+  "module": "./lib/passwordgenerator.mjs",
   "bin": {
-    "genpw": "./dist/main/exec.js"
+    "genpw": "./bin/exec.mjs"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/genpw/genpw.git"
   },
   "scripts": {
-    "build": "run-s clean test build:*",
-    "build:main": "BABEL_ENV=main babel -d dist/main/ src/js/lib/",
-    "build:module": "BABEL_ENV=module babel -d dist/module/ src/js/lib/",
     "clean": "rimraf .nyc_output coverage dist/* npm-debug.log",
     "precommit": "run-s lint-staged pretty-quick",
     "lint": "eslint --fix .",
     "lint-staged": "lint-staged",
     "semantic-release": "semantic-release",
     "pretest": "run-s lint",
-    "test": "BABEL_ENV=main nyc mocha",
-    "posttest": "BABEL_ENV=main nyc report --reporter=lcov",
+    "test": "nyc mocha --require @std/esm test/*.mjs",
+    "posttest": "nyc report --reporter=lcov",
     "pretty-quick": "pretty-quick --staged"
   },
   "config": {
@@ -37,49 +43,14 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "babel": {
-    "env": {
-      "module": {
-        "presets": [
-          [
-            "env",
-            {
-              "targets": {
-                "node": "current",
-                "browsers": ["last 2 versions"]
-              },
-              "modules": false
-            }
-          ]
-        ]
-      },
-      "main": {
-        "presets": [
-          [
-            "env",
-            {
-              "targets": {
-                "node": "current",
-                "browsers": ["last 2 versions"]
-              },
-              "modules": "commonjs"
-            }
-          ]
-        ]
-      }
-    }
-  },
   "dependencies": {
+    "@std/esm": "0.23.3",
     "sjcl": "1.0.7"
   },
   "devDependencies": {
     "@mi11er/eslint-config": "2.2.0",
     "@semantic-release/changelog": "1.0.1",
     "@semantic-release/git": "3.0.1",
-    "babel-cli": "6.26.0",
-    "babel-eslint": "8.2.2",
-    "babel-preset-env": "1.6.1",
-    "babel-register": "6.26.0",
     "chai": "4.1.2",
     "codeclimate-test-reporter": "0.5.0",
     "commitizen": "2.9.6",
@@ -103,10 +74,14 @@
     "semantic-release": "13.0.1",
     "sort-package-json": "1.11.0"
   },
-  "nyc": {
-    "include": ["src/"],
-    "require": ["babel-register"],
+  "@std/esm": {
+    "cjs": true,
     "all": true
+  },
+  "nyc": {
+    "include": ["lib/", "bin/", "index.js", "index.mjs"],
+    "require": ["@std/esm"],
+    "extension": [".jsx", ".mjs"]
   },
   "release": {
     "branch": "master",
