@@ -17,7 +17,7 @@ before_install:
 - yarn config set progress=false
 - yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
-script: npm run build
+script: yarn test
 after_script:
 - codeclimate-test-reporter < coverage/lcov.info
 - greenkeeper-lockfile-upload
@@ -26,7 +26,7 @@ before_deploy:
   - .travis/setup-git.sh > /dev/null 2>&1
 deploy:
   provider: script
-  script: npm run semantic-release
+  script: yarn semantic-release
   skip_cleanup: true
   on:
     branch: master
