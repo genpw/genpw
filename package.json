@@ -1,6 +1,6 @@
 {
   "name": "genpw",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "Generate a password.",
   "homepage": "https://genpw.com",
   "bugs": {
@@ -79,9 +79,19 @@
     "all": true
   },
   "nyc": {
-    "include": ["lib/", "bin/", "index.js", "index.mjs"],
-    "require": ["@std/esm"],
-    "extension": [".jsx", ".mjs"]
+    "include": [
+      "lib/",
+      "bin/",
+      "index.js",
+      "index.mjs"
+    ],
+    "require": [
+      "@std/esm"
+    ],
+    "extension": [
+      ".jsx",
+      ".mjs"
+    ]
   },
   "release": {
     "branch": "master",
@@ -99,7 +109,9 @@
       },
       {
         "path": "@semantic-release/git",
-        "assets": ["**"]
+        "assets": [
+          "**"
+        ]
       },
       {
         "path": "@semantic-release/github",
