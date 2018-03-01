@@ -44,7 +44,7 @@
     }
   },
   "dependencies": {
-    "@std/esm": "0.23.3",
+    "@std/esm": "0.23.4",
     "sjcl": "1.0.7"
   },
   "devDependencies": {
