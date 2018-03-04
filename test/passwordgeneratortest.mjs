@@ -1,6 +1,8 @@
-import { expect } from 'chai';
+import chai from 'chai';
 import PasswordGenerator from '../lib/passwordgenerator';
 import { diceware8k } from '../lib/diceware8k';
+
+const { expect } = chai;
 
 describe('PasswordGenerator', () => {
   it('should generate a password', () => {
