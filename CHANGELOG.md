@@ -1,3 +1,13 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/genpw/genpw/compare/v2.0.0...v2.0.1) (2018-03-04)
+
+
+### Bug Fixes
+
+* **import:** correct commonjs import ([968c19a](https://github.com/genpw/genpw/commit/968c19a))
+* **package:** update [@std](https://github.com/std)/esm to version 0.23.4 ([ac713d3](https://github.com/genpw/genpw/commit/ac713d3))
+* **package:** update [@std](https://github.com/std)/esm to version 0.24.0 ([e219615](https://github.com/genpw/genpw/commit/e219615)), closes [#99](https://github.com/genpw/genpw/issues/99)
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/genpw/genpw/compare/v1.0.9...v2.0.0) (2018-02-28)
 
