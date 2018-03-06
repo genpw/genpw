@@ -1,4 +1,5 @@
 ---
+version: 2
 plugins:
   git-legal:
     enabled: true
@@ -10,23 +11,8 @@ plugins:
       languages:
       - javascript
   eslint:
-    enabled: true
-    channel: eslint-2
-    config:
-      config: ".eslintrc.js"
-    checks:
-      import/no-unresolved:
-        enabled: false
+    enabled: false
   fixme:
     enabled: true
   markdownlint:
     enabled: true
-ratings:
-  paths:
-  - "**.js"
-  - "**.json"
-  - "**.md"
-exclude_paths:
-- test/
-- dist/
-- node_modules/
