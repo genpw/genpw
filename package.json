@@ -75,22 +75,12 @@
     "sort-package-json": "1.11.0"
   },
   "@std/esm": {
-    "esm": "js"
+    "mode": "js"
   },
   "nyc": {
-    "include": [
-      "lib/",
-      "bin/",
-      "index.js",
-      "index.mjs"
-    ],
-    "require": [
-      "@std/esm"
-    ],
-    "extension": [
-      ".jsx",
-      ".mjs"
-    ]
+    "include": ["lib/", "bin/", "index.js", "index.mjs"],
+    "require": ["@std/esm"],
+    "extension": [".jsx", ".mjs"]
   },
   "release": {
     "branch": "master",
@@ -108,9 +98,7 @@
       },
       {
         "path": "@semantic-release/git",
-        "assets": [
-          "**"
-        ]
+        "assets": ["**"]
       },
       {
         "path": "@semantic-release/github",
