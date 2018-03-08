@@ -78,19 +78,9 @@
     "mode": "js"
   },
   "nyc": {
-    "include": [
-      "lib/",
-      "bin/",
-      "index.js",
-      "index.mjs"
-    ],
-    "require": [
-      "@std/esm"
-    ],
-    "extension": [
-      ".jsx",
-      ".mjs"
-    ]
+    "include": ["lib/", "bin/", "index.js", "index.mjs"],
+    "require": ["@std/esm"],
+    "extension": [".jsx", ".mjs"]
   },
   "release": {
     "branch": "master",
@@ -100,7 +90,7 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ],
-    "publish": [
+    "prepare": [
       "@semantic-release/changelog",
       {
         "path": "@semantic-release/npm",
@@ -108,10 +98,11 @@
       },
       {
         "path": "@semantic-release/git",
-        "assets": [
-          "**"
-        ]
-      },
+        "assets": ["**"]
+      }
+    ],
+    "publish": [
+      "@smenatic-release/npm",
       {
         "path": "@semantic-release/github",
         "assets": [
