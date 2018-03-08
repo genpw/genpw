@@ -115,11 +115,12 @@
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/error/-/error-2.1.0.tgz#44771f676f5b148da309111285a97901aa95a6e0"
 
-"@semantic-release/git@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-3.0.1.tgz#65a2cd7c8bdac74b91de2bd368957cf55033871f"
+"@semantic-release/git@3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-3.1.1.tgz#6ffe4148075fef14ab71980608adbee153f8d979"
   dependencies:
     "@semantic-release/error" "^2.1.0"
+    aggregate-error "^1.0.0"
     debug "^3.1.0"
     dir-glob "^2.0.0"
     execa "^0.9.0"
