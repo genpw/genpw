@@ -102,7 +102,7 @@
       }
     ],
     "publish": [
-      "@smenatic-release/npm",
+      "@semantic-release/npm",
       {
         "path": "@semantic-release/github",
         "assets": [
