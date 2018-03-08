@@ -93,11 +93,12 @@
     proxy-from-env "^1.0.0"
     url-template "^2.0.8"
 
-"@semantic-release/changelog@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@semantic-release/changelog/-/changelog-1.0.1.tgz#4faefdb78fccf113eaf122dd68f7e287048bc68e"
+"@semantic-release/changelog@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@semantic-release/changelog/-/changelog-1.1.1.tgz#c7e673150710ff214802ee34dc5af447c7465b2d"
   dependencies:
     "@semantic-release/error" "^2.1.0"
+    aggregate-error "^1.0.0"
     fs-extra "^5.0.0"
     lodash "^4.17.4"
 
