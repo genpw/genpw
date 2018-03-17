@@ -48,7 +48,7 @@
     "sjcl": "1.0.7"
   },
   "devDependencies": {
-    "@mi11er/eslint-config": "2.2.0",
+    "@mi11er/eslint-config": "2.2.1",
     "@semantic-release/changelog": "2.0.1",
     "@semantic-release/git": "4.0.1",
     "chai": "4.1.2",
