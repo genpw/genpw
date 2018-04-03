@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-openssl aes-256-cbc -K $encrypted_342f2f6ad141_key -iv $encrypted_342f2f6ad141_iv -in .travis/gpg.key.enc -d | /usr/bin/gpg --batch --no-tty --import --
+echo -n "${GPG_KEY}" | base64 -d | /usr/bin/gpg --batch --no-tty --import --
 
-git config --local gpg.program ".travis/sign.sh"
+git config --local gpg.program ".circleci/sign.sh"
 
 git config --local commit.gpgsign true
 
