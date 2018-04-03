@@ -37,7 +37,8 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      - test
+      - test:
+          context: Testing
       - release:
           context: Release
           requires:
