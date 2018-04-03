@@ -20,7 +20,7 @@ jobs:
           paths:
             - node_modules
       - run: yarn test
-      - run: codeclimate-test-reporter < coverage/lcov.info
+      - run: yarn codeclimate-test-reporter
       - persist_to_workspace:
           root: ~/project
           paths:
