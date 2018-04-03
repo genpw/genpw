@@ -1,6 +1,6 @@
 {
   "name": "genpw",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Generate a password.",
   "homepage": "https://genpw.com",
   "bugs": {
@@ -29,8 +29,7 @@
   },
   "scripts": {
     "clean": "rimraf .nyc_output coverage dist/* npm-debug.log",
-    "codeclimate-test-reporter":
-      "codeclimate-test-reporter < coverage/lcov.info",
+    "codeclimate-test-reporter": "codeclimate-test-reporter < coverage/lcov.info",
     "precommit": "run-s lint-staged pretty-quick",
     "lint": "eslint --fix .",
     "lint-staged": "lint-staged",
@@ -80,9 +79,19 @@
     "mode": "js"
   },
   "nyc": {
-    "include": ["lib/", "bin/", "index.js", "index.mjs"],
-    "require": ["@std/esm"],
-    "extension": [".jsx", ".mjs"]
+    "include": [
+      "lib/",
+      "bin/",
+      "index.js",
+      "index.mjs"
+    ],
+    "require": [
+      "@std/esm"
+    ],
+    "extension": [
+      ".jsx",
+      ".mjs"
+    ]
   },
   "release": {
     "branch": "master",
@@ -100,7 +109,9 @@
       },
       {
         "path": "@semantic-release/git",
-        "assets": ["**"]
+        "assets": [
+          "**"
+        ]
       }
     ],
     "publish": [
