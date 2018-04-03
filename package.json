@@ -72,7 +72,7 @@
     "prettier": "1.11.1",
     "pretty-quick": "1.4.1",
     "rimraf": "2.6.2",
-    "semantic-release": "15.0.3",
+    "semantic-release": "15.1.5",
     "sort-package-json": "1.11.0"
   },
   "@std/esm": {
