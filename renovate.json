@@ -1,16 +1,3 @@
 {
-  "extends": ["config:base"],
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "packageRules": [
-    {
-      "packagePatterns": ["eslint"],
-      "groupName": "eslint"
-    },
-    {
-      "packagePatterns": ["semantic-release"],
-      "groupName": "semantic-release"
-    }
-  ]
+  "extends": ["@mi11er"]
 }
