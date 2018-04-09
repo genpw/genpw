@@ -1,3 +1,11 @@
+<a name="2.0.5"></a>
+## [2.0.5](https://github.com/genpw/genpw/compare/v2.0.4...v2.0.5) (2018-04-09)
+
+
+### Bug Fixes
+
+* **esm:** switch from [@std](https://github.com/std)/esm(deprecated) to esm ([3e12b87](https://github.com/genpw/genpw/commit/3e12b87))
+
 <a name="2.0.4"></a>
 ## [2.0.4](https://github.com/genpw/genpw/compare/v2.0.3...v2.0.4) (2018-04-03)
 
