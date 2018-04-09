@@ -1,6 +1,6 @@
 /**
  * This file acts as a CJS bridge to the password geneartor library.
  */
-const esmRequire = require('@std/esm')(module);
+const esmRequire = require('esm')(module);
 
 module.exports = esmRequire('./lib/passwordgenerator').default;

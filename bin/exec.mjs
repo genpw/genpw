@@ -1,4 +1,4 @@
-#!/usr/bin/env node -r @std/esm
+#!/usr/bin/env node -r esm
 import PasswordGenerator from '../lib/passwordgenerator';
 
 const pw = new PasswordGenerator();
