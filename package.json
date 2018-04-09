@@ -23,19 +23,17 @@
   "bin": {
     "genpw": "./bin/exec.mjs"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/genpw/genpw.git"
-  },
+  "repository": "https://github.com/genpw/genpw.git",
   "scripts": {
     "clean": "rimraf .nyc_output coverage dist/* npm-debug.log",
-    "codeclimate-test-reporter": "codeclimate-test-reporter < coverage/lcov.info",
+    "codeclimate-test-reporter":
+      "codeclimate-test-reporter < coverage/lcov.info",
     "precommit": "run-s lint-staged pretty-quick",
     "lint": "eslint --fix .",
     "lint-staged": "lint-staged",
     "semantic-release": "semantic-release",
     "pretest": "run-s lint",
-    "test": "nyc mocha --require @std/esm test/*.mjs",
+    "test": "nyc mocha --require esm test/*.mjs",
     "posttest": "nyc report --reporter=lcov",
     "pretty-quick": "pretty-quick --staged"
   },
@@ -45,7 +43,7 @@
     }
   },
   "dependencies": {
-    "@std/esm": "0.26.0",
+    "esm": "3.0.16",
     "sjcl": "1.0.7"
   },
   "devDependencies": {
@@ -75,23 +73,10 @@
     "semantic-release": "15.1.5",
     "sort-package-json": "1.11.0"
   },
-  "@std/esm": {
-    "mode": "js"
-  },
   "nyc": {
-    "include": [
-      "lib/",
-      "bin/",
-      "index.js",
-      "index.mjs"
-    ],
-    "require": [
-      "@std/esm"
-    ],
-    "extension": [
-      ".jsx",
-      ".mjs"
-    ]
+    "include": ["lib/", "bin/", "index.js", "index.mjs"],
+    "require": ["esm"],
+    "extension": [".jsx", ".mjs"]
   },
   "release": {
     "branch": "master",
@@ -109,9 +94,7 @@
       },
       {
         "path": "@semantic-release/git",
-        "assets": [
-          "**"
-        ]
+        "assets": ["**"]
       }
     ],
     "publish": [
