@@ -1,3 +1,11 @@
+<a name="2.0.9"></a>
+## [2.0.9](https://github.com/genpw/genpw/compare/v2.0.8...v2.0.9) (2018-04-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency esm to v3.0.21 ([675f566](https://github.com/genpw/genpw/commit/675f566))
+
 <a name="2.0.8"></a>
 ## [2.0.8](https://github.com/genpw/genpw/compare/v2.0.7...v2.0.8) (2018-04-20)
 
