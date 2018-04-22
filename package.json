@@ -42,7 +42,7 @@
     }
   },
   "dependencies": {
-    "esm": "3.0.21",
+    "esm": "3.0.22",
     "sjcl": "1.0.7"
   },
   "devDependencies": {
