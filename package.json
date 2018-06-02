@@ -6,6 +6,7 @@
   "bugs": {
     "url": "https://github.com/genpw/genpw/issues"
   },
+  "repository": "https://github.com/genpw/genpw.git",
   "license": "MIT",
   "author": "Matthew <matthew@mi11er.net> (https://mi11er.net)",
   "files": [
@@ -23,7 +24,6 @@
   "bin": {
     "genpw": "./bin/exec.mjs"
   },
-  "repository": "https://github.com/genpw/genpw.git",
   "scripts": {
     "clean": "rimraf .nyc_output coverage dist/* npm-debug.log",
     "codeclimate-test-reporter": "codeclimate-test-reporter < coverage/lcov.info",
@@ -32,7 +32,7 @@
     "lint-staged": "lint-staged",
     "semantic-release": "semantic-release",
     "pretest": "run-s lint",
-    "test": "nyc mocha --require esm test/*.mjs",
+    "test": "nyc mocha --require esm test/*.js",
     "posttest": "nyc report --reporter=lcov",
     "pretty-quick": "pretty-quick --staged"
   },
