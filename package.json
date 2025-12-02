@@ -70,7 +70,7 @@
     "pretty-quick": "1.6.0",
     "rimraf": "2.6.2",
     "semantic-release": "15.5.0",
-    "sort-package-json": "1.15.0"
+    "sort-package-json": "3.5.0"
   },
   "nyc": {
     "include": [
