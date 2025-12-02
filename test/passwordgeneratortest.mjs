@@ -1,6 +1,6 @@
 import chai from 'chai';
-import PasswordGenerator from '../lib/passwordgenerator';
-import { diceware8k } from '../lib/diceware8k';
+import PasswordGenerator from '../lib/passwordgenerator.mjs';
+import { diceware8k } from '../lib/diceware8k.mjs';
 
 const { expect } = chai;
 

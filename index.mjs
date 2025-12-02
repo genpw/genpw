@@ -1,3 +1,3 @@
-import PasswordGenerator from './lib/passwordgenerator';
+import PasswordGenerator from './lib/passwordgenerator.mjs';
 
 export default PasswordGenerator;
