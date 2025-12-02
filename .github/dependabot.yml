@@ -1,0 +1,69 @@
+# Dependabot configuration file
+# Mirrors the behavior of the existing Renovate configuration (github>mi11er-net/renovate-config)
+#
+# Renovate features translated:
+# - Weekly schedule for lock file maintenance → weekly npm schedule
+# - Group devDependencies into "All Dev" → grouped updates for development dependencies
+# - CircleCI automerge on Monday morning → GitHub Actions weekly schedule (automerge not directly supported)
+# - :prHourlyLimit4 → open-pull-requests-limit
+# - :rebaseStalePrs → rebase-strategy: auto
+#
+# Differences from Renovate:
+# - Dependabot doesn't support automatic PR automerge (requires GitHub Actions workflow)
+# - Dependabot grouping is different - uses "groups" feature
+# - Dependabot doesn't distinguish between regular updates and lock file maintenance
+# - Dependabot doesn't have :prNotPending equivalent (waiting for CI before creating PRs)
+# - Peer dependency widening (:widenPeerDependencies) is not supported
+
+version: 2
+updates:
+  # npm/yarn package ecosystem for JavaScript dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 4
+    rebase-strategy: "auto"
+    labels:
+      - "dependencies"
+    groups:
+      # Group all development dependencies together (mirrors Renovate's "All Dev" group)
+      dev-dependencies:
+        dependency-type: "development"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Group production dependencies for minor and patch updates
+      production-dependencies:
+        dependency-type: "production"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    # Commit message format
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # GitHub Actions ecosystem (replaces CircleCI manager behavior from Renovate)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 4
+    rebase-strategy: "auto"
+    labels:
+      - "dependencies"
+      - "ci"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
