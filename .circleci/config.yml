@@ -19,8 +19,20 @@ jobs:
           key: v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
-      - run: yarn test
-      - run: yarn codeclimate-test-reporter
+      - run:
+          name: Download CodeClimate test reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Run tests and upload coverage to CodeClimate
+          command: |
+            ./cc-test-reporter before-build
+            set +e
+            yarn test
+            TEST_EXIT_CODE=$?
+            ./cc-test-reporter after-build --exit-code $TEST_EXIT_CODE
+            exit $TEST_EXIT_CODE
       - persist_to_workspace:
           root: ~/project
           paths:
