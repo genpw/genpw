@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "esm": "3.2.25",
-    "sjcl": "1.0.8"
+    "sjcl": "1.0.9"
   },
   "devDependencies": {
     "@mi11er/eslint-config": "2.2.2",
