@@ -160,13 +160,19 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@mi11er/eslint-config@2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@mi11er/eslint-config/-/eslint-config-2.2.2.tgz#847b4043fc5c7a3761d4b6e7cda79782c7892ae4"
+"@eslint/js@^10.0.0":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-10.0.1.tgz#1e8a876f50117af8ab67e47d5ad94d38d6622583"
+  integrity sha512-zeR9k5pd4gxjZ0abRoIaxdc7I3nDktoXZk2qOv9gCNWx3mVwEn32VRhyLaRsDiJjTs0xq/T8mfPtyuXu7GWBcA==
+
+"@mi11er/eslint-config@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@mi11er/eslint-config/-/eslint-config-3.0.5.tgz#bddcfe750aeb0e96ade49ee1fe3b3437390e7ad3"
+  integrity sha512-ejx7s5i3rhUfrc0KDfEaciofwJkNj3YRRKSCpYjDfEK0D8i3nWb1dI+/AU3h4kde3rP+ivtseVXlFdcgbyfLqA==
   dependencies:
-    eslint-config-airbnb "16.1.0"
-    eslint-config-airbnb-base "12.1.0"
-    eslint-config-prettier "2.9.0"
+    "@eslint/js" "^10.0.0"
+    eslint-config-prettier "^10.1.8"
+    globals "^17.0.0"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -1443,12 +1449,6 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-airbnb-base@12.1.0, eslint-config-airbnb-base@^12.1.0:
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-12.1.0.tgz#386441e54a12ccd957b0a92564a4bafebd747944"
-  dependencies:
-    eslint-restricted-globals "^0.1.1"
-
 eslint-config-airbnb-base@13.0.0:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-13.0.0.tgz#2ee6279c4891128e49d6445b24aa13c2d1a21450"
@@ -1457,17 +1457,16 @@ eslint-config-airbnb-base@13.0.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-airbnb@16.1.0:
-  version "16.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-16.1.0.tgz#2546bfb02cc9fe92284bf1723ccf2e87bc45ca46"
-  dependencies:
-    eslint-config-airbnb-base "^12.1.0"
-
 eslint-config-prettier@2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.9.0.tgz#5ecd65174d486c22dff389fe036febf502d468a3"
   dependencies:
     get-stdin "^5.0.1"
+
+eslint-config-prettier@^10.1.8:
+  version "10.1.8"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-10.1.8.tgz#15734ce4af8c2778cc32f0b01b37b0b5cd1ecb97"
+  integrity sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==
 
 eslint-import-resolver-node@^0.3.1:
   version "0.3.2"
@@ -2276,6 +2275,11 @@ global-prefix@^0.1.4:
 globals@^11.1.0, globals@^11.5.0, globals@^11.7.0:
   version "11.12.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
+
+globals@^17.0.0:
+  version "17.12.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-17.12.0.tgz#910a368b8f093d3feb3f77a56dcefa05647d698e"
+  integrity sha512-cezEd/DTyyht9cvSSURyygXPfy04GtWO/5e6ZPvH7fCtjKz9PYOmuawphw1Ctd1f6C+5JypXfGD7ahNMXvevBA==
 
 globals@^9.14.0:
   version "9.18.0"
