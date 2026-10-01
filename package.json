@@ -60,7 +60,7 @@
     "eslint-plugin-no-unsafe-innerhtml": "1.0.16",
     "eslint-plugin-optimize-regex": "1.2.1",
     "eslint-plugin-scanjs-rules": "0.2.1",
-    "eslint-plugin-security": "1.7.1",
+    "eslint-plugin-security": "4.1.0",
     "husky": "0.14.3",
     "lint-staged": "7.3.0",
     "mocha": "5.2.0",
