@@ -48,7 +48,7 @@
   "devDependencies": {
     "@mi11er/eslint-config": "2.4.1",
     "@semantic-release/changelog": "2.1.2",
-    "@semantic-release/git": "5.0.0",
+    "@semantic-release/git": "11.0.1",
     "chai": "4.5.0",
     "codeclimate-test-reporter": "0.5.1",
     "commitizen": "2.10.1",
