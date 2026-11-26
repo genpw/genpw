@@ -110,7 +110,7 @@
     "eslint-plugin-node": "8.0.1",
     "eslint-plugin-optimize-regex": "1.2.1",
     "eslint-plugin-scanjs-rules": "0.2.1",
-    "eslint-plugin-security": "1.7.1",
+    "eslint-plugin-security": "4.2.1",
     "husky": "0.14.3",
     "lint-staged": "7.3.0",
     "mocha": "5.2.0",
