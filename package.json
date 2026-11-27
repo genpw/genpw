@@ -1,125 +1,106 @@
 {
   "name": "genpw",
   "version": "2.0.12",
-  "description": "Generate a password.",
+  "description": "Generate a random Diceware passphrase.",
+  "keywords": [
+    "password",
+    "passphrase",
+    "diceware",
+    "generator",
+    "random"
+  ],
   "homepage": "https://genpw.com",
   "bugs": {
     "url": "https://github.com/genpw/genpw/issues"
   },
-  "repository": "https://github.com/genpw/genpw.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genpw/genpw.git"
+  },
   "license": "MIT",
   "author": "Matthew <matthew@mi11er.net> (https://mi11er.net)",
-  "main": "./index.js",
-  "module": "./lib/passwordgenerator.mjs",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./src/index.js",
+  "types": "./types/index.d.ts",
   "bin": {
-    "genpw": "./bin/exec.mjs"
+    "genpw": "./bin/genpw.js"
   },
   "files": [
     "bin",
-    "lib",
-    "index.js",
-    "index.mjs",
-    "LICENSE",
-    "package.json",
-    "README.md",
+    "src",
+    "types",
     "CHANGELOG.md"
   ],
   "scripts": {
-    "clean": "rimraf .nyc_output coverage dist/* npm-debug.log",
-    "codeclimate-test-reporter": "codeclimate-test-reporter < coverage/lcov.info",
-    "lint": "eslint --fix .",
-    "lint-staged": "lint-staged",
-    "precommit": "run-s lint-staged pretty-quick",
-    "pretty-quick": "pretty-quick --staged",
-    "semantic-release": "semantic-release",
-    "pretest": "run-s lint",
-    "test": "nyc mocha --require esm test/*.js",
-    "posttest": "nyc report --reporter=lcov"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "build:types": "tsc -p tsconfig.json",
+    "clean": "rimraf coverage types release",
+    "format": "prettier --write .",
+    "lint": "eslint . && prettier --check .",
+    "prepack": "npm run build:types",
+    "prepare": "husky",
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 --test-coverage-exclude=test/**",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "release": {
-    "branch": "master",
-    "prepare": [
-      "@semantic-release/changelog",
-      {
-        "path": "@semantic-release/npm",
-        "tarballDir": "release"
-      },
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "**"
-        ]
-      }
+    "branches": [
+      "master"
     ],
-    "publish": [
-      "@semantic-release/npm",
-      {
-        "path": "@semantic-release/github",
-        "assets": [
-          {
-            "path": "release/*.tgz",
-            "label": "Package tarball"
-          }
-        ]
-      }
-    ],
-    "verifyConditions": [
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git",
-      "@semantic-release/github"
+      [
+        "@semantic-release/npm",
+        {
+          "tarballDir": "release"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "package.json"
+          ]
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "release/*.tgz",
+              "label": "Package tarball"
+            }
+          ]
+        }
+      ]
     ]
   },
-  "nyc": {
-    "extension": [
-      ".jsx",
-      ".mjs"
-    ],
-    "include": [
-      "lib/",
-      "bin/",
-      "index.js",
-      "index.mjs"
-    ],
-    "require": [
-      "esm"
-    ]
-  },
-  "dependencies": {
-    "esm": "3.2.25",
-    "sjcl": "1.0.8"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@mi11er/eslint-config": "2.4.1",
-    "@semantic-release/changelog": "2.1.2",
-    "@semantic-release/git": "5.0.0",
-    "chai": "4.5.0",
-    "codeclimate-test-reporter": "0.5.1",
-    "commitizen": "2.10.1",
-    "cz-conventional-changelog": "2.1.0",
-    "eslint": "5.16.0",
-    "eslint-config-airbnb-base": "13.2.0",
-    "eslint-config-prettier": "2.10.0",
-    "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-no-unsafe-innerhtml": "1.0.16",
-    "eslint-plugin-node": "8.0.1",
-    "eslint-plugin-optimize-regex": "1.2.1",
-    "eslint-plugin-scanjs-rules": "0.2.1",
-    "eslint-plugin-security": "1.7.1",
-    "husky": "0.14.3",
-    "lint-staged": "7.3.0",
-    "mocha": "5.2.0",
-    "npm-run-all2": "5.0.2",
-    "nyc": "12.0.2",
-    "prettier": "1.19.1",
-    "pretty-quick": "1.11.1",
-    "rimraf": "2.7.1",
-    "semantic-release": "15.5.0",
-    "sort-package-json": "1.57.0"
+    "@eslint/js": "10.0.1",
+    "@types/node": "26.6.11",
+    "eslint": "10.15.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-n": "18.6.0",
+    "globals": "17.14.0",
+    "husky": "9.1.7",
+    "lint-staged": "17.6.2",
+    "prettier": "3.10.1",
+    "rimraf": "6.1.4",
+    "sort-package-json": "4.1.0",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=26"
   }
 }

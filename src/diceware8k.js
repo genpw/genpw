@@ -1,5 +1,11 @@
-export const oneZero = [0, 1];
-export const diceware8k = [
+/**
+ * The Diceware 8k word list: 8,192 (2^13) distinct symbols, giving 13 bits of
+ * entropy per symbol.
+ *
+ * @see http://world.std.com/~reinhold/diceware8k.c
+ * @type {readonly string[]}
+ */
+export const diceware8k = Object.freeze([
   'a',
   'a&p',
   "a's",
@@ -8192,4 +8198,4 @@ export const diceware8k = [
   '?',
   '??',
   '@',
-];
+]);

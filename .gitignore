@@ -12,7 +12,9 @@
 /release/
 
 # Test Output
-/.nyc_output/
 /coverage/
+
+# Generated type declarations
+/types/
 
 

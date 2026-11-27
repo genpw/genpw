@@ -9,7 +9,7 @@ plugins:
     enabled: true
     config:
       languages:
-      - javascript
+        - javascript
   eslint:
     enabled: false
   fixme:
