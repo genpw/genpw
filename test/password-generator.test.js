@@ -14,13 +14,12 @@ function sequence(values) {
     calls: 0,
     /** @param {Uint32Array<ArrayBuffer>} array */
     getRandomValues(array) {
-      for (let i = 0; i < array.length; i += 1) {
-        if (source.calls >= values.length) {
-          throw new Error('fake random source exhausted');
-        }
-        array[i] = values[source.calls];
-        source.calls += 1;
+      const next = values.slice(source.calls, source.calls + array.length);
+      if (next.length < array.length) {
+        throw new Error('fake random source exhausted');
       }
+      array.set(next);
+      source.calls += array.length;
       return array;
     },
   };
@@ -161,16 +160,18 @@ describe('PasswordGenerator', () => {
       const table = ['a', 'b', 'c', 'd', 'e'];
       const pw = new PasswordGenerator(table);
       const draws = 50_000;
-      /** @type {Record<string, number>} */
-      const counts = Object.fromEntries(table.map((s) => [s, 0]));
+      /** @type {Map<string, number>} */
+      const counts = new Map();
       for (let i = 0; i < draws; i += 1) {
-        counts[pw.symbol] += 1;
+        const { symbol } = pw;
+        counts.set(symbol, (counts.get(symbol) ?? 0) + 1);
       }
+      assert.deepEqual([...counts.keys()].sort(), table);
       // Expected 10,000 each with a standard deviation of about 89; allow 5%.
-      for (const symbol of table) {
+      for (const [symbol, count] of counts) {
         assert.ok(
-          Math.abs(counts[symbol] - draws / table.length) < 500,
-          `${symbol} was picked ${counts[symbol]} times`,
+          Math.abs(count - draws / table.length) < 500,
+          `${symbol} was picked ${count} times`,
         );
       }
     });

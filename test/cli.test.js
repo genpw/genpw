@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { diceware8k } from '../src/diceware8k.js';
@@ -49,15 +49,13 @@ describe('genpw CLI', () => {
     it(`shows usage with ${flag}`, () => {
       const { status, stdout } = genpw(flag);
       assert.equal(status, 0);
-      assert.match(stdout, /^Usage: genpw \[count\]/);
+      assert.match(stdout, /^Usage: genpw \[count]/);
     });
   }
 
   for (const flag of ['--version', '-v']) {
     it(`shows the version with ${flag}`, () => {
-      const { version } = JSON.parse(
-        readFileSync(new URL('../package.json', import.meta.url), 'utf8'),
-      );
+      const { version } = createRequire(import.meta.url)('../package.json');
       const { status, stdout } = genpw(flag);
       assert.equal(status, 0);
       assert.equal(stdout, `${version}\n`);
