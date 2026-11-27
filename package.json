@@ -1,11 +1,10 @@
 {
   "name": "genpw",
   "version": "2.0.12",
-  "description": "Generate a random Diceware passphrase.",
+  "description": "Generate a password.",
   "keywords": [
     "password",
     "passphrase",
-    "diceware",
     "generator",
     "random"
   ],

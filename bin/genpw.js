@@ -7,7 +7,7 @@ const DEFAULT_COUNT = 7;
 
 const USAGE = `Usage: genpw [count]
 
-Generate a random passphrase from the Diceware 8k word list.
+Generate a random passphrase.
 
 Arguments:
   count          number of words (default: ${DEFAULT_COUNT})
